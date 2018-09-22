@@ -2,6 +2,7 @@ package spinlock
 
 import (
 	"runtime"
+	"sync"
 	"sync/atomic"
 )
 
@@ -21,24 +22,17 @@ func (l *SpinLock) TryLock() bool {
 	return atomic.CompareAndSwapUint32(&l.s, unlocked, locked)
 }
 
-// TryUnlock will try to release the lock and return it succeed or not.
-func (l *SpinLock) TryUnlock() bool {
-	return atomic.CompareAndSwapUint32(&l.s, locked, unlocked)
-
-}
-
-// Lock acquire the spin-lock, if the lock is already in use, the caller blocks until Unlock is called
+// Lock will try to acquire the spin-lock, if the lock is already in use, the caller blocks until Unlock is called
 func (l *SpinLock) Lock() {
 	for !l.TryLock() {
 		runtime.Gosched() // interrupt current goroutine execution and allows other goroutines to do some stuff.
 	}
-
 }
 
+// Unlock will release the spin-lock.
+// Calling a Unlock on a spin-lock there is no harmful.
 func (l *SpinLock) Unlock() {
-	for !l.TryUnlock() {
-		runtime.Gosched()
-	}
+	atomic.StoreUint32(&l.s, unlocked)
 }
 
 // String returns the lock status string literal.
@@ -48,4 +42,10 @@ func (l *SpinLock) String() string {
 	}
 
 	return "Unlocked"
+}
+
+// NewSpinLock creates an new spin-lock.
+func NewSpinLock() sync.Locker {
+	var lock SpinLock
+	return &lock
 }
