@@ -44,8 +44,8 @@ func (l *SpinLock) String() string {
 	return "Unlocked"
 }
 
-// NewSpinLock creates an new spin-lock.
-func NewSpinLock() sync.Locker {
+// New creates an new spin-lock.
+func New() sync.Locker {
 	var lock SpinLock
 	return &lock
 }

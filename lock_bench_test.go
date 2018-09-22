@@ -23,7 +23,7 @@ func BenchmarkMutex(b *testing.B) {
 	}
 }
 
-func BenchmarkRMutexW(b *testing.B) {
+func BenchmarkRWMutexW(b *testing.B) {
 	var lock sync.RWMutex
 
 	for i := 0; i < b.N; i++ {
@@ -32,7 +32,7 @@ func BenchmarkRMutexW(b *testing.B) {
 	}
 }
 
-func BenchmarkRMutexR(b *testing.B) {
+func BenchmarkRWMutexR(b *testing.B) {
 	var lock sync.RWMutex
 
 	for i := 0; i < b.N; i++ {
