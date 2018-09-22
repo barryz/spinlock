@@ -1,6 +1,7 @@
 # Spinlock 
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/barryz/spinlock)](https://goreportcard.com/report/github.com/barryz/spinlock)
+[![GoDoc](https://godoc.org/github.com/barryz/spinlock?status.svg)](https://godoc.org/github.com/barryz/spinlock)
 [![Build Status](https://travis-ci.org/barryz/spinlock.svg?branch=master)](https://travis-ci.org/barryz/spinlock)
 [![Apache 2 licensed](https://img.shields.io/badge/license-Apache2-blue.svg)](https://raw.githubusercontent.com/oklog/run/master/LICENSE)
 
