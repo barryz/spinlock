@@ -1,0 +1,1 @@
+Spinlock is a [spin-lock](https://en.wikipedia.org/wiki/Spinlock) go language implementation.
