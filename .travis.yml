@@ -4,10 +4,8 @@ sudo: false
 
 matrix:
   include:
-    - go: "1.10.x"
-      script: go test -v --race ./...
     - go: "1.11.x"
-      script: go test -v --race -mod=vendor ./...
+      script: go test -v -mod=vendor ./...
 
 install: true
 
