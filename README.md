@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/barryz/spinlock.svg?branch=master)](https://travis-ci.org/barryz/spinlock)
 [![Apache 2 licensed](https://img.shields.io/badge/license-Apache2-blue.svg)](https://raw.githubusercontent.com/oklog/run/master/LICENSE)
 
-Spinlock is a [spin-lock](https://en.wikipedia.org/wiki/Spinlock) go language implementation.
+Spinlock is a [spin-lock](https://en.wikipedia.org/wiki/Spinlock) implementation written by Go.
 
 
 ## Usage
